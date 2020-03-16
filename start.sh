@@ -22,7 +22,10 @@ if ${TAGS}; then
     _TAGS='--tags'
 fi
 
-cd ${INPUT_DIRECTORY}
+if [ "${INPUT_DIRECTORY}" != "." ]; then
+    echo "Changing directory to ${INPUT_DIRECTORY}"
+    cd ${INPUT_DIRECTORY}
+fi
 
 remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
 
